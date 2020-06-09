@@ -59,8 +59,9 @@ const sortByLength = (arr) => {
   arr.sort(function(a,b){
     a = a.length;
     b = b.length;
-    return b - a;
+    return a - b;
   });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -82,6 +83,7 @@ const alphabetizeBetter = (arr) => {
     }
     return 0;
   });
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -245,7 +247,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   test('It should sort strings by length', () => {
     const ans = sortByLength(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
     expect(ans.slice(0,2)).toStrictEqual(['Zebra', 'carrot']);
@@ -256,7 +258,7 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should alphabetize without regard to capitalization', () => {
     expect(alphabetizeBetter(['Alice', 'apple', 'alert', 'Average'])).toStrictEqual([ 'alert', 'Alice', 'apple', 'Average' ]);
     const ans = alphabetizeBetter(['alphabet', 'Zebra', 'Alphabet', 'carrot']);
