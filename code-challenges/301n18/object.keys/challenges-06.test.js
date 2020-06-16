@@ -70,7 +70,13 @@ let $ = createSnippetWithJQuery(`
 `);
 
 const templatingWithMustache = () => {
-  // Solution code here...
+  let newArr = [];
+  characters.forEach( family => {
+    let $template = $('#template').html();
+    let rendered = Mustache.render($template, family);
+    newArr.push(rendered);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
