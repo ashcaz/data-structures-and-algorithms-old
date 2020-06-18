@@ -24,7 +24,7 @@ let $ = createSnippetWithJQuery(`
 
 const generateSubmitButton = () => {
   $('form').append('<button>submit</button>');
-}
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -52,7 +52,11 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  return str.match(/(\b[A-Z]\w*)\b/g);
+  let regex = str.match(/(\b[A-Z]\w*)\b/g);
+  if (regex === null){
+    return [];
+  }
+  return regex;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,7 +66,9 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 ------------------------------------------------------------------------------------------------ */
 
 const citiesAtoJ = (arr) => {
-  return arr.sort(/\b([A-Z]\w*)\b/);
+  const regex = arr.sort(/\b([A-Z]\w*)\b/);
+  console.log(regex);
+  return regex;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -171,7 +177,7 @@ describe('Testing challenge 3', () => {
   });
 });
 
-xdescribe('Testing challenge 4', () => {
+describe('Testing challenge 4', () => {
   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
 
   test('It should return the cities whose names begin with the letters A through J', () => {
@@ -187,7 +193,7 @@ xdescribe('Testing challenge 4', () => {
   });
 });
 
-xdescribe('Testing challenge 5', () => {
+describe('Testing challenge 5', () => {
   test('It should match any of the acceptable inputs', () => {
     expect(matchMonth('Oct')).toBeTruthy();
     expect(matchMonth('oct')).toBeTruthy();
@@ -205,7 +211,7 @@ xdescribe('Testing challenge 5', () => {
   });
 });
 
-xdescribe('Testing challenge 6', () => {
+describe('Testing challenge 6', () => {
   const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia vel massa sed egestas. Nunc faucibus iaculis elit, a scelerisque enim condimentum sed. Aenean ac scelerisque sem, et pharetra diam.';
 
   test('It should only return words that are immediately followed by a space', () => {
