@@ -50,7 +50,8 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 
 const filterStringsWithVowels = (arr) => {
-  // Solution code here...
+  const result = arr.filter(str => str.match(/[aeiou]/gi) );
+  return result;
 };
 
 
