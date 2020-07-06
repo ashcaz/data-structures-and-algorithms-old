@@ -49,7 +49,14 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  console.log(arr);
+  arr.forEach( str => {
+    if (str.match(/(:\))/g)){
+      newArr.push(str);
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
