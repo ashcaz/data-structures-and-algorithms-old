@@ -32,7 +32,12 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 
 ------------------------------------------------------------------------------------------------ */
 
 const firstLetters = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach(str => {
+    let newStr = str.slice(0,1);
+    newArr.push(newStr);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -44,7 +49,14 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  console.log(arr);
+  arr.forEach( str => {
+    if (str.match(/(:\))/g)){
+      newArr.push(str);
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,7 +68,11 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  let newArr = arr.map(str => {
+    let newNum = str.replace('(', '').replace(')', '').replace(' ', '').replace('-', '');
+    return newNum;
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,7 +84,15 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let newStr = str.split('');
+  let newArr = [];
+  newStr.forEach( (val,idx) => {
+    if (idx%2 === 1){
+      newArr.push(val);
+    }
+  });
+  let finalAnswer = newArr.join('');
+  return finalAnswer;
 };
 
 /* ------------------------------------------------------------------------------------------------
