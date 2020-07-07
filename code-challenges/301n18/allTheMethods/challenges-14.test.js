@@ -40,7 +40,13 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 ------------------------------------------------------------------------------------------------ */
 
 const toTitleCase = (arr) => {
-  // Solution code here...
+  let newArr = arr.map(str => {
+    let sliceStr = str.slice(1);
+    let upperStr = str.charAt(0).toUpperCase();
+    let newStr = upperStr + sliceStr;
+    return newStr;
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
