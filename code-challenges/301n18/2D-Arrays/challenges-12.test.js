@@ -38,9 +38,21 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
+  let newArr = [];
+  let cookieCount = 0;
+  for(let i = 0; i < hoursOpen.length; i++){
+    console.log('i', i);
+    for(let j = 0; j < stores.length; j++){
+      let newCookies = stores[j][i];
+      cookieCount = cookieCount + newCookies;
+    }
+    newArr.push(cookieCount);
+    cookieCount = 0;
+  }
+  return newArr;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
