@@ -38,9 +38,21 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
-
+  let newArr = [];
+  let cookieCount = 0;
+  for(let i = 0; i < hoursOpen.length; i++){
+    console.log('i', i);
+    for(let j = 0; j < stores.length; j++){
+      let newCookies = stores[j][i];
+      cookieCount = cookieCount + newCookies;
+    }
+    newArr.push(cookieCount);
+    cookieCount = 0;
+  }
+  return newArr;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -53,7 +65,15 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let newArray =[];
+  hours.forEach((val,idx) => {
+    let storeObj = {
+      sales: `${data[idx]} cookies`,
+      time : val,
+    };
+    newArray.push(storeObj);
+  });
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -78,8 +98,17 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let numTreats = 0;
+  arr.forEach(obj =>{
+    obj.items.forEach(item =>{
+      if (item.name === 'Treats'){
+        numTreats = item.quantity;
+      }
+    });
+  });
+  return numTreats;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 - Stretch Goal
@@ -100,7 +129,12 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+  let hitOrMiss = board[row][col];
+  if(hitOrMiss === '#'){
+    return 'hit';
+  }else if(hitOrMiss === ' '){
+    return 'miss';
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
